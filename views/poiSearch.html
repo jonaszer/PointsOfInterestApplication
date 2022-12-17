@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="module" src="../scripts/poiSearch.js"></script>
+    <link rel="stylesheet" href="../public/componentStyles.css" />
+  </head>
+  <body>
+    <h1>All Points of Interest in Database by given Region</h1>
+    <div class="input-group">
+      <input
+        type="text"
+        id="poiRegion"
+        class="input"
+        placeholder="Enter your region..."
+      />
+      <input type="button" id="ajaxButton" class="btn" value="Search" />
+    </div>
+
+    <div class="tableOfPoints">
+      <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Country</th>
+            <th>Region</th>
+          </tr>
+        </thead>
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+  </body>
+</html>

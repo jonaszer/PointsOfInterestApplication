@@ -1,0 +1,76 @@
+body {
+    font-size: 62.5%;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Table for POI by givenb region */
+
+h1 {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+table, th, tr {
+    width: 700px;
+    height: 20px;
+}
+
+thead, th {
+    background-color: #427fef;
+    padding: 5px;
+    text-align: center;
+}
+
+thead th {
+    color: white;
+    padding: 5px;
+}
+
+tbody td{
+    padding: 5px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #eef7ff;
+}
+
+.tableOfPoints {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    font-size: 1.5rem;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 0.5rem 3.5rem;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #427fef;
+    color: white;
+    border-radius: 40px;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2vw;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    background-color: #82a9f3;
+}
+
