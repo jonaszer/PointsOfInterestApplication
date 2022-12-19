@@ -22,8 +22,7 @@ router.get('/:region', (req, res) => {
 
 router.post('/create', (req, res) => {
     connection.query('INSERT INTO pointsofinterest(name, type, country, region, lon, lat, description) VALUES (?,?,?,?,?,?,?)',
-        [req.body.name, req.body.type, req.body.country, req.body.region, req.body.lon, req.body.lat, req.body.description],
-        (error, results, fields) => {
+        Object.values(req.body), (error, results, fields) => {
             if (error) {
                 res.status(500).json({ error: error });
             } else {

@@ -5,6 +5,10 @@ body {
     line-height: 1.5;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* Table for POI by givenb region */
 
 h1 {
@@ -74,3 +78,30 @@ tbody tr:nth-child(odd) {
     background-color: #82a9f3;
 }
 
+/* Add POI */
+
+input[type="text"],
+input[type="number"],
+input[type="textarea"],
+select {
+  width: 40%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.btn {
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}

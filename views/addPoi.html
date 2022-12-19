@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../scripts/addPoi.js"></script>
+    <link rel="stylesheet" href="../public/componentStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <label for="lname">Location Name</label>
+      <input id="lname" type="text" placeholder="Enter location name..." />
+      <label for="ltype">Location Type</label>
+      <input id="ltype" type="text" placeholder="Enter location type..." />
+      <label for="lcountry">Location Country</label>
+      <input
+        id="lcountry"
+        type="text"
+        placeholder="Enter location country..."
+      />
+      <label for="lregion">Location Region</label>
+      <input id="lregion" type="text" placeholder="Enter location region..." />
+      <label for="lon">Location Lon</label>
+      <input
+        id="lon"
+        type="number"
+        step="0.00001"
+        placeholder="Enter location lon..."
+      />
+      <label for="lat">Location Lat</label>
+      <input
+        id="lat"
+        type="number"
+        step="0.00001"
+        placeholder="Enter location lat..."
+      />
+      <label for="description">Description</label>
+      <input
+        id="description"
+        type="textarea"
+        placeholder="Enter description..."
+      />
+      <button id="submit" class="btn">Submit</button>
+    </div>
+    <div id="results"></div>
+  </body>
+</html>
