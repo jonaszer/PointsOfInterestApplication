@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../middleware/db_connection')
+const cors = require('cors');
+
+router.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'DELETE', 'UPDATE']
+}));
 
 
 //--------- SIMPLE REST API ---------//
