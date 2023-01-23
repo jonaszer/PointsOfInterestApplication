@@ -30,9 +30,9 @@ router.post('/create', (req, res) => {
     connection.query('INSERT INTO pointsofinterest(name, type, country, region, lon, lat, description) VALUES (?,?,?,?,?,?,?)',
         Object.values(req.body), (error, results, fields) => {
             if (error) {
-                res.status(500).json({ error: error });
+                res.status(400).json({ 'Message': 'Point of interest addition failed. Incomplete fields.' });
             } else {
-                res.json({ success: 1 });
+                res.status(200).json({ 'Message': 'Point of interest has been successfully added.' });
             }
         });
 });

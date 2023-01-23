@@ -3,6 +3,8 @@ body {
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
+    background-color: #181818;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='662' height='662' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23843400' stroke-width='1.9'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23FF5E00'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 * {
@@ -15,6 +17,11 @@ h1 {
     display: flex;
     justify-content: center;
     font-size: 2rem;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
 }
 
 table, th, tr {
@@ -47,26 +54,46 @@ button {
     line-height: 1;
 }
 
-.tableOfPoints {
-    display: none;
-    justify-content: center;
+a {
+    text-decoration: none;
+}
+
+/* Search POI */
+
+.title_search {
+    position: relative;
+    color: rgb(218, 98, 0);
+    top: 1rem;
+}
+
+#map {
+    position: relative;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 65vh;
+    border-radius: 25px;
+    bottom: 2rem;
 }
 
 .input {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     border-radius: 30px;
     border: 1px solid black;
 }
 
 .input-group {
+    position: relative;
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
+    top: 1rem;
 }
 
 .btn {
-    background-color: #427fef;
-    border-radius: 20px;
+    background-color: rgb(189, 85, 0);
+    border-radius: 25px;
     color: white;
     border: 0;
     padding: 1rem 2rem;
@@ -77,12 +104,13 @@ button {
     text-transform: uppercase;
     white-space: nowrap;
     margin-left: 10px;
+    transition: background-color 0.5s;
 }
 
 
 
 .btn:hover {
-    background-color: #82a9f3;
+    background-color: rgb(255, 94, 0);
 }
 
 /* Add POI */
@@ -93,7 +121,7 @@ input[type="textarea"],
 select {
   width: 40%;
   border: 1px solid #ccc;
-  border-radius: 20px;
+  border-radius: 25px;
   padding-left: 1rem;
   box-sizing: border-box;
   resize: vertical;
@@ -105,6 +133,14 @@ select {
     align-items: center;
     flex-direction: column;
     padding: 1rem;
+}
+
+.search_container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 25px;
+    height: 100%;
+    width: auto;
 }
 
 /* Recommend Button */
@@ -120,3 +156,39 @@ select {
     text-transform: initial;
     margin-bottom: 1rem;
 }
+
+/* Navigation Bar */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    opacity: 0.9;
+    border-radius: 25px;
+  }
+  
+li {
+    float: left;
+  }
+  
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+  }
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: rgb(218, 98, 0);
+  }
+
+.brand {
+    color: rgb(218, 98, 0);
+    text-align: center;
+  }
