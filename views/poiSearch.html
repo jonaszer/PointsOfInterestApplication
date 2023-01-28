@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/componentStyles.css" />
     <script type="module" src="../scripts/poiSearch.js"></script>
-    <script type="module" src="../scripts/addPoi.js"></script>
+    <script type="module" src="../middleware/addPoi.js"></script>
+    <script type="module" src="../middleware/login.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
@@ -28,7 +29,10 @@
     <nav>
       <ul>
         <li class="brand"><a href="./index.html">Home</a></li>
-        <li style="float: right"><a href="#">Login</a></li>
+        <li id="loginStatus"></li>
+        <li style="float: right">
+          <a href="#" id="loginMenuButton">Login</a>
+        </li>
         <li style="float: right"><a href="./poiSearch.html">Search</a></li>
       </ul>
     </nav>
@@ -108,6 +112,31 @@
             <button id="submit" class="btn formbtn">Add</button>
           </div>
         </div>
+      </div>
+    </div>
+    <div id="loginBlock">
+      <div id="loginWrapper">
+        <div id="login-close-btn">&times;</div>
+        <h2 class="formTitle" id="loginFormTitle">Please enter user details</h2>
+        <form id="login" class="loginForm" onsubmit="return false">
+          <h4 id="errorStatus"></h4>
+          <label for="username">Username</label><br />
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username..."
+          /><br />
+          <label for="password">Password</label><br />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password..."
+          /><br />
+          <div class="loginButtonWrapper">
+            <button id="loginButton" class="btn">Sign In</button>
+            <button id="loginCancelButton" class="btn">Cancel</button>
+          </div>
+        </form>
       </div>
     </div>
   </body>

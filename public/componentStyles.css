@@ -60,6 +60,7 @@ a {
 input[type="text"],
 input[type="number"],
 input[type="textarea"],
+input[type="password"],
 select {
   width: 60%;
   height: 2rem;
@@ -182,6 +183,9 @@ label {
 }
 
 .formTitle {
+    position: relative;
+    display: flex;
+    bottom: 2rem;
     color: rgb(255, 94, 0);
 }
 
@@ -231,4 +235,55 @@ label {
 
 #content #close-btn:hover {
     background-color: rgb(255, 94, 0);
+}
+
+/* Login */
+
+#loginBlock {
+    display: none;
+}
+
+#loginWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25%;
+    display: flex;
+    background-color: black;
+    opacity: 0.9;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
+    max-width: 500px;
+    height: 40vh;
+    z-index: 3;
+}
+
+#loginStatus {
+    top: 1.1rem;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(255, 94, 0);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+}
+
+.loginForm input {
+    margin: 0;
+    padding-left: 1rem;
+}
+
+#loginFormTitle {
+    margin: 0;
 }

@@ -2,12 +2,19 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../middleware/db_connection')
 const cors = require('cors');
+const expressSession = require('express-session')
+const storeMysql = require('express-mysql-session')(expressSession)
 
 router.use(cors({
     origin: '*',
     methods: ['GET', 'POST', 'DELETE', 'UPDATE']
 }));
 
+router.use(expressSession({
+    secret: 'verystrongpassword',
+    resave: false,
+    saveUninitialized: false
+}));
 
 //--------- SIMPLE REST API ---------//
 
@@ -27,7 +34,17 @@ router.get('/:region', (req, res) => {
 // Add new point of interest
 
 router.post('/create', (req, res, next) => {
-    if (!Object.values(req.body)[0] && !Object.values(req.body)[1] && !Object.values(req.body)[2] && !Object.values(req.body)[3] && !Object.values(req.body)[4] && !Object.values(req.body)[5] && !Object.values(req.body)[6]) {
+    if (req.session.loggedin = false) {
+        res.status(401).json({ 'Message': 'You must be logged in to add new POI!' })
+    }
+
+    if (!Object.values(req.body)[0] &&
+        !Object.values(req.body)[1] &&
+        !Object.values(req.body)[2] &&
+        !Object.values(req.body)[3] &&
+        !Object.values(req.body)[4] &&
+        !Object.values(req.body)[5] &&
+        !Object.values(req.body)[6]) {
         res.status(400).json({ 'Message': 'All input fields must be filled!' });
         return next(res);
     } else if (!Object.values(req.body)[0]) {
@@ -75,6 +92,30 @@ router.post('/:id', (req, res) => {
             res.status(404).json({ error: 'No recommendations added, could not find a record matching that ID.' });
         }
     });
+});
+
+// Login
+
+router.post('/user/login', (req, res) => {
+    connection.query('SELECT * FROM poi_users WHERE username = ?', [Object.values(req.body)[0]],
+        async (error, results) => {
+            if (error) {
+                console.log(error)
+                return
+            } else if (results.length == 1 && (Object.values(req.body)[1] == results[0].password)) {
+                req.session.loggedin = true
+                req.session.id = results[0].id
+                req.session.username = results[0].username
+                console.log('Logged in as: ')
+                console.log(req.session.id)
+                console.log(req.session.username)
+                res.status(200).json({ 'Message': `Logged in as - ${req.session.username}` })
+            } else if (results.length == 0) {
+                res.status(404).json({ 'Message': 'There are no users within given username!' })
+            } else {
+                res.status(400).json({ 'Message': 'Incorrect Password!' })
+            }
+        });
 });
 
 module.exports = router;

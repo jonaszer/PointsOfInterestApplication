@@ -5,18 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/componentStyles.css" />
+    <script type="module" src="../middleware/login.js"></script>
     <title>Points of Interest App</title>
   </head>
   <header>
     <nav>
       <ul>
         <li class="brand"><a href="./index.html">Home</a></li>
-        <li style="float: right"><a href="#">Login</a></li>
+        <li id="loginStatus"></li>
+        <li style="float: right">
+          <a href="#" id="loginMenuButton">Login</a>
+        </li>
         <li style="float: right"><a href="./poiSearch.html">Search</a></li>
       </ul>
     </nav>
   </header>
   <body>
-    <h1>Welcome to Points of Interest Application</h1>
+    <div class="dashboard">
+      <h1>Welcome to Points of Interest Application</h1>
+      <h2>Web Application Development (QHO540)</h2>
+      <h3>This web application has been created for module's assessment 1</h3>
+    </div>
+    <div id="loginBlock">
+      <div id="loginWrapper">
+        <div id="login-close-btn">&times;</div>
+        <h2 class="formTitle" id="loginFormTitle">Please enter user details</h2>
+        <form id="login" class="loginForm" onsubmit="return false">
+          <h4 id="errorStatus"></h4>
+          <label for="username">Username</label><br />
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username..."
+          /><br />
+          <label for="password">Password</label><br />
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password..."
+          /><br />
+          <div class="loginButtonWrapper">
+            <button id="loginButton" class="btn">Sign In</button>
+            <button id="loginCancelButton" class="btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
