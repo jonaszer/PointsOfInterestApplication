@@ -24,6 +24,10 @@ h3 {
     margin: 0;
 }
 
+h4 {
+    color: white;
+}
+
 table, th, tr {
     width: 700px;
     height: 20px;
@@ -49,13 +53,22 @@ tbody tr:nth-child(odd) {
     background-color: #eef7ff;
 }
 
-button {
-    padding: 0;
-    line-height: 1;
-}
-
 a {
     text-decoration: none;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="textarea"],
+select {
+  width: 60%;
+  height: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  padding-left: 1rem;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 /* Search POI */
@@ -68,27 +81,31 @@ a {
 
 #map {
     position: relative;
-    display: block;
+    height: 65vh;
+    width: 90%;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%;
-    height: 65vh;
     border-radius: 25px;
     bottom: 2rem;
-}
-
-.input {
-    font-size: 1.1rem;
-    border-radius: 30px;
-    border: 1px solid black;
+    margin-right: 1rem;
+    z-index: 2;
+    transition: width .7s;
 }
 
 .input-group {
     position: relative;
     display: flex;
     justify-content: center;
-    margin-bottom: 5rem;
     top: 1rem;
+}
+
+.input {
+    width: 25%;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding-left: 1rem;
+    box-sizing: border-box;
 }
 
 .btn {
@@ -107,54 +124,20 @@ a {
     transition: background-color 0.5s;
 }
 
-
-
 .btn:hover {
     background-color: rgb(255, 94, 0);
 }
 
 /* Add POI */
 
-input[type="text"],
-input[type="number"],
-input[type="textarea"],
-select {
-  width: 40%;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  padding-left: 1rem;
-  box-sizing: border-box;
-  resize: vertical;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 1rem;
-}
-
 .search_container {
     position: relative;
     background: rgba(0, 0, 0, 0.9);
     border-radius: 25px;
-    height: 100%;
-    width: auto;
 }
 
-/* Recommend Button */
-
-.recommend {
-    width: 100%;
-    position: relative;
-    float: right;
-    font-size: 0.7rem;
-    margin: 0;
-    bottom: 2px;
-    padding: 10px 16px;
-    text-transform: initial;
-    margin-bottom: 1rem;
+.searchwrap {
+    height: 8rem;
 }
 
 /* Navigation Bar */
@@ -183,12 +166,69 @@ li a {
     transition: background-color 0.3s;
   }
   
-  /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: rgb(218, 98, 0);
+    background-color: rgb(255, 94, 0);
   }
 
 .brand {
     color: rgb(218, 98, 0);
     text-align: center;
   }
+
+/* Form */
+
+label {
+    color: white;
+}
+
+.formTitle {
+    color: rgb(255, 94, 0);
+}
+
+.wrapper {
+    display: flex;
+}
+
+#form-popup {
+    position: fixed;
+    display: none;
+    right: 0.4rem;
+    margin-right: 1rem;
+    transform: scale(0);
+    height: 60vh;
+    width: 0;
+    background-color: black;
+    border-radius: 25px;
+    overflow: auto;
+    transition: width .7s;
+}
+
+#content {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+#content #close-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 0.8rem;
+    top: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    transition: .3s ease-in-out;
+}
+
+#content #close-btn:hover {
+    background-color: rgb(255, 94, 0);
+}

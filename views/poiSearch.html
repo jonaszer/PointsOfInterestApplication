@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/componentStyles.css" />
     <script type="module" src="../scripts/poiSearch.js"></script>
+    <script type="module" src="../scripts/addPoi.js"></script>
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
       integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
       crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <script
       src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
@@ -31,16 +36,79 @@
   <body>
     <div class="search_container">
       <h1 class="title_search">Points of Interest by given Region</h1>
-      <div class="input-group">
-        <input
-          type="text"
-          id="poiRegion"
-          class="input"
-          placeholder="Enter your region..."
-        />
-        <button id="ajaxButton" class="btn">Search</button>
+      <div class="searchwrap">
+        <div class="input-group">
+          <input
+            id="poiRegion"
+            class="input"
+            placeholder="Enter your region..."
+          />
+          <button id="ajaxButton" class="btn">Search</button>
+          <button id="addNew" class="btn">Add New</button>
+        </div>
       </div>
-      <div id="map"></div>
+      <div class="wrapper">
+        <div id="map"></div>
+        <div id="form-popup">
+          <div id="content" id="content">
+            <div id="close-btn">&times;</div>
+            <h2 class="formTitle">New Point of Interest</h2>
+            <label for="lname">Location Name</label>
+            <input
+              id="lname"
+              type="text"
+              placeholder="Enter location name..."
+              required
+            />
+            <label for="ltype">Location Type</label>
+            <input
+              id="ltype"
+              type="text"
+              placeholder="Enter location type..."
+              required
+            />
+            <label for="lcountry">Location Country</label>
+            <input
+              id="lcountry"
+              type="text"
+              placeholder="Enter location country..."
+              required
+            />
+            <label for="lregion">Location Region</label>
+            <input
+              id="lregion"
+              type="text"
+              placeholder="Enter location region..."
+              required
+            />
+            <label for="lon">Location Lon</label>
+            <input
+              id="lon"
+              type="number"
+              step="0.00001"
+              placeholder="Enter location lon..."
+              required
+            />
+            <label for="lat">Location Lat</label>
+            <input
+              id="lat"
+              type="number"
+              step="0.00001"
+              placeholder="Enter location lat..."
+              required
+            />
+            <label for="description">Description</label>
+            <input
+              id="description"
+              type="textarea"
+              placeholder="Enter description..."
+              required
+            />
+            <h4 id="results"></h4>
+            <button id="submit" class="btn formbtn">Add</button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

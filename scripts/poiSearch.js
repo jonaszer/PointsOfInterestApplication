@@ -31,6 +31,29 @@ async function poiResults() {
     })
 }
 
+map.on('click', e => {
+    document.getElementById('lon').value = e.latlng.lng
+    document.getElementById('lat').value = e.latlng.lat
+})
+
 document.getElementById('ajaxButton').addEventListener('click', () => {
     poiResults()
+});
+
+document.getElementById('addNew').addEventListener('click', () => {
+    document.getElementById('map').style.width = '60%';
+    document.getElementById('map').style.left = '2%';
+    document.getElementById('map').style.transform = 'translateX(0)';
+    document.getElementById('form-popup').style.width = '35%';
+    document.getElementById('form-popup').style.display = 'block';
+    document.getElementById('form-popup').style.transform = 'scale(1)';
+});
+
+document.getElementById('close-btn').addEventListener('click', () => {
+    document.getElementById('map').style.width = '90%';
+    document.getElementById('map').style.left = '50%';
+    document.getElementById('map').style.transform = 'translateX(-50%)';
+    document.getElementById('form-popup').style.width = '0';
+    document.getElementById('form-popup').style.display = 'none';
+    document.getElementById('form-popup').style.transform = 'scale(0)';
 });

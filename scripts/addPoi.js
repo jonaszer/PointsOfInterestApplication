@@ -30,7 +30,7 @@ async function newPoiSave(newPoi) {
             body: JSON.stringify(newPoi)
         });
         const res = await response.json();
-        document.getElementById('results').innerHTML = res
+        document.getElementById('results').innerHTML = `${Object.values(res)}`
     }
     catch (e) {
         console.log(e)

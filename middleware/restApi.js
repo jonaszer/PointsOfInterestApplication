@@ -26,15 +26,41 @@ router.get('/:region', (req, res) => {
 
 // Add new point of interest
 
-router.post('/create', (req, res) => {
-    connection.query('INSERT INTO pointsofinterest(name, type, country, region, lon, lat, description) VALUES (?,?,?,?,?,?,?)',
-        Object.values(req.body), (error, results, fields) => {
-            if (error) {
-                res.status(400).json({ 'Message': 'Point of interest addition failed. Incomplete fields.' });
-            } else {
-                res.status(200).json({ 'Message': 'Point of interest has been successfully added.' });
-            }
-        });
+router.post('/create', (req, res, next) => {
+    if (!Object.values(req.body)[0] && !Object.values(req.body)[1] && !Object.values(req.body)[2] && !Object.values(req.body)[3] && !Object.values(req.body)[4] && !Object.values(req.body)[5] && !Object.values(req.body)[6]) {
+        res.status(400).json({ 'Message': 'All input fields must be filled!' });
+        return next(res);
+    } else if (!Object.values(req.body)[0]) {
+        res.status(400).json({ 'Message': 'Location Name cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[1]) {
+        res.status(400).json({ 'Message': 'Location Type cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[2]) {
+        res.status(400).json({ 'Message': 'Location Country cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[3]) {
+        res.status(400).json({ 'Message': 'Location Region cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[4]) {
+        res.status(400).json({ 'Message': 'Location Lon cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[5]) {
+        res.status(400).json({ 'Message': 'Location Lat cannot be empty!' });
+        return next(res);
+    } else if (!Object.values(req.body)[6]) {
+        res.status(400).json({ 'Message': 'Location Description cannot be empty!' });
+        return next(res);
+    } else {
+        connection.query('INSERT INTO pointsofinterest(name, type, country, region, lon, lat, description) VALUES (?,?,?,?,?,?,?)',
+            Object.values(req.body), (error, results, fields) => {
+                if (error) {
+                    res.status(500).json({ 'Message': 'Internal Error.' });
+                } else {
+                    res.status(201).json({ 'Message': 'Point of interest has been successfully added.' });
+                }
+            });
+    }
 });
 
 // To recommend point of interest
