@@ -306,6 +306,9 @@ label {
 }
 
 .dashboard h1, h2, h3 {
-    color: rgb(214, 214, 214);
     display: flex;
+}
+
+.dash {
+    color: rgb(204, 204, 204);
 }
