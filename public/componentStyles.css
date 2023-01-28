@@ -287,3 +287,25 @@ label {
 #loginFormTitle {
     margin: 0;
 }
+
+/* Dashboard */
+
+.dashboard {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1rem;
+    border-radius: 25px;
+    width: 90%;
+    height: 70%;
+    background-color: black;
+    opacity: .9;
+}
+
+.dashboard h1, h2, h3 {
+    color: rgb(214, 214, 214);
+    display: flex;
+}
